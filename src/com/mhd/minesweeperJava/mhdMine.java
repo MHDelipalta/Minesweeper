@@ -36,7 +36,7 @@ import java.awt.Desktop;
 import java.awt.Color;
 import java.awt.BorderLayout;
 
-public final class mayin implements ActionListener, MouseListener 
+public final class mhdMine implements ActionListener, MouseListener 
 {
     private final JFrame mhdScreen; 
     private JFrame mhdNewScreen;
@@ -61,7 +61,7 @@ public final class mayin implements ActionListener, MouseListener
     InputStream mhdSelection;
     InputStream mhdBackroundMusic;
     
-public mayin() 
+public mhdMine() 
 {
     mhdPlayBackgroundMusic();
     mhdScreen = new JFrame("mhdMinesweeperJava");
@@ -72,7 +72,7 @@ public mayin()
     mhdScreen.setJMenuBar(mhdMenu());
     mhdMinesweeperImages();              
     mhdMixed.setLayout(new BorderLayout()); 
-    mhdScoreIndicator = new JTextField(""+mayin);
+    mhdScoreIndicator = new JTextField(""+mhdMine);
     mhdScoreIndicator.setBackground(Color.YELLOW);
     mhdScoreIndicator.setForeground(Color.BLACK);
     mhdScoreIndicator.setFont(mhdScoreIndicator.getFont().deriveFont(Font.BOLD,19f));            
@@ -150,12 +150,12 @@ public void mhdPlayBlastMusic()
     
     catch (FileNotFoundException ex)
     {
-        Logger.getLogger(mayin.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(mhdMine.class.getName()).log(Level.SEVERE, null, ex);
     }
     
     catch (IOException ex)
     {
-        Logger.getLogger(mayin.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(mhdMine.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
 
@@ -170,12 +170,12 @@ public void mhdPlayClickedMusic()
     
     catch (FileNotFoundException ex)
     {
-        Logger.getLogger(mayin.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(mhdMine.class.getName()).log(Level.SEVERE, null, ex);
     } 
     
     catch (IOException ex)
     {
-        Logger.getLogger(mayin.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(mhdMine.class.getName()).log(Level.SEVERE, null, ex);
     } 
 }
 
@@ -190,12 +190,12 @@ public void mhdPlayBackgroundMusic()
     
     catch (FileNotFoundException ex)
     {
-        Logger.getLogger(mayin.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(mhdMine.class.getName()).log(Level.SEVERE, null, ex);
     }
     
     catch (IOException ex) 
     {
-        Logger.getLogger(mayin.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(mhdMine.class.getName()).log(Level.SEVERE, null, ex);
     } 
 }
 
@@ -255,30 +255,30 @@ public JMenuBar mhdMenu()
             
             if (mhdEasyGameIntent == mhdVariable.getSource())
             {
-                mhdWidthButton = 8;
-                mhdHeightButton = 8;
-                mayin = 10;
-                mhdScoreIndicator.setText(""+mayin);
+                mhdWidthButton = 10;
+                mhdHeightButton = 10;
+                mhdMine = 12;
+                mhdScoreIndicator.setText(""+mhdMine);
                 mhdResetTime();
                 mhdRefresh();
             }
             
             if (mhdNormalGameIntent == mhdVariable.getSource())
             {
-                mhdWidthButton = 16;
-                mhdHeightButton = 16;
-                mayin = 40;
-                mhdScoreIndicator.setText(""+mayin);
+                mhdWidthButton = 20;
+                mhdHeightButton = 20;
+                mhdMine = 50;
+                mhdScoreIndicator.setText(""+mhdMine);
                 mhdResetTime();
                 mhdRefresh();
             }
             
             if (mhdDifficultGameIntent == mhdVariable.getSource())
             {
-                mhdWidthButton = 16;
+                mhdWidthButton = 24;
                 mhdHeightButton = 30;
-                mayin = 99;
-                mhdScoreIndicator.setText(""+mayin);
+                mhdMine = 100;
+                mhdScoreIndicator.setText(""+mhdMine);
                 mhdResetTime();
                 mhdRefresh();
             }
@@ -295,7 +295,7 @@ public JMenuBar mhdMenu()
                    @Override
                    public void windowClosing(WindowEvent e)
                    {
-                       System.out.println("A is closing");
+                       System.out.println("Kapanıyor.");
                        mhdScreen.enable(true);
                        mhdScreen.setVisible(true);
                     }
@@ -303,7 +303,7 @@ public JMenuBar mhdMenu()
                     @Override
                     public void windowClosed(WindowEvent e) 
                     {
-                        System.out.println("A has closed");
+                        System.out.println("Kapatıldı.");
                     }
                 });
                 
@@ -313,16 +313,16 @@ public JMenuBar mhdMenu()
                 mhdBoard.setLayout(null);
                 
                 JLabel mhdLength = new JLabel("Uzunluk:");
-                mhdLength.setBounds(10, 15, 50, 15);
+                mhdLength.setBounds(12, 16, 60, 20);
                 mhdBoard.add(mhdLength);
                 
                 JLabel mhdWidth = new JLabel("Genişlik:")   ;       
                 mhdWidth.setBounds(10, 45, 50, 15);
                 mhdBoard.add(mhdWidth);
                                
-                JLabel mayin_Label = new JLabel("Mayın:");
-                mayin_Label.setBounds(10, 75, 50, 15);
-                mhdBoard.add(mayin_Label);
+                JLabel mhdMine_Label = new JLabel("Mayın:");
+                mhdMine_Label.setBounds(10, 75, 50, 15);
+                mhdBoard.add(mhdMine_Label);
                                
                 JTextField mhdLengthCopy= new JTextField(""+mhdHeightButton);
                 mhdLengthCopy.setBounds(70,12,50,20);
@@ -332,9 +332,9 @@ public JMenuBar mhdMenu()
                 mhdWidthCopy.setBounds(70,42,50,20);
                 mhdBoard.add(mhdWidthCopy);
                                
-                JTextField mayin_text= new JTextField(""+mayin);
-                mayin_text.setBounds(70,72,50,20);
-                mhdBoard.add(mayin_text);
+                JTextField mhdMineText= new JTextField(""+mhdMine);
+                mhdMineText.setBounds(70,72,50,20);
+                mhdBoard.add(mhdMineText);
                         
                 JButton mhdCreateButton = new JButton("Oluştur");
                 mhdCreateButton.setBounds(130, 12, 90, 20);
@@ -347,8 +347,8 @@ public JMenuBar mhdMenu()
                 {
                     mhdHeightButton = Integer.valueOf(mhdLengthCopy.getText());
                     mhdWidthButton = Integer.valueOf(mhdWidthCopy.getText());                    
-                    mayin = Integer.valueOf(mayin_text.getText());
-                    mhdScoreIndicator.setText(""+mayin);
+                    mhdMine = Integer.valueOf(mhdMineText.getText());
+                    mhdScoreIndicator.setText(""+mhdMine);
                     mhdRefresh();
                     mhdResetTime();
                     mhdNewScreen.setVisible(false);
@@ -396,7 +396,7 @@ public JMenuBar mhdMenu()
                 
                 catch (URISyntaxException | IOException ex)
                 {
-                    Logger.getLogger(mayin.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(mhdMine.class.getName()).log(Level.SEVERE, null, ex);
                 } 
             }
         } 
@@ -413,9 +413,9 @@ public JMenuBar mhdMenu()
     mhdBar.add(yardim);
     return mhdBar;
 }        
-        private int mhdWidthButton = 8; 
-        private int mhdHeightButton = 8; 
-        private int mayin = 10;      
+        private int mhdWidthButton = 10; 
+        private int mhdHeightButton = 10; 
+        private int mhdMine = 12;      
         int[][] mhdMineArray; 
         JButton[][] mhdButtonArray;
         JPanel mhdMineMixingArray = null; 
@@ -471,7 +471,7 @@ public JMenuBar mhdMenu()
         
         public void mhdMineBuilder(JButton button[][])
         {
-            int[] mhdMineMethod = mhdGenerateRandom(mhdWidthButton, mhdHeightButton, mayin);
+            int[] mhdMineMethod = mhdGenerateRandom(mhdWidthButton, mhdHeightButton, mhdMine);
             int mhdNumber = 1;
             for (int i = 0; i < mhdWidthButton; i++)
             {
@@ -560,14 +560,14 @@ public JMenuBar mhdMenu()
             } 
         }
 
-public int[] mhdGenerateRandom(int mhdButtonWidth, int mhdButtonHeight, int mayin)
+public int[] mhdGenerateRandom(int mhdButtonWidth, int mhdButtonHeight, int mhdMine)
 {
     Random rand = new Random();
     int[] mhdRandomMine = new int[mhdButtonWidth * mhdButtonHeight];
     boolean mhdTesting = false;
     int mhdNumber = 0;
     
-    while (mhdNumber < mayin)
+    while (mhdNumber < mhdMine)
     {
         int   mhdRandomNumber = (int) ((mhdButtonWidth * mhdButtonHeight) * (rand.nextDouble())) + 1;
         mhdTesting = false;
@@ -823,6 +823,6 @@ public void mouseExited(MouseEvent arg0)
 
 public static void main(String[] args)
 {
-    mayin baglanti=new mayin();
+    mhdMine baglanti=new mhdMine();
 }
 }
